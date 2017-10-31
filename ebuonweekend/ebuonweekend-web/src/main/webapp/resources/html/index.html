@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="eBuonweekend" ng-controller="mainController">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="E-Buonweekend">
+  <meta name="author" content="I Cinque Rapporti - Digital Garage 2017">
+  <meta name="keywords" content="">
+
+  <title>
+    E-Buonweekend
+  </title>
+
+  <meta name="keywords" content="">
+
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100' rel='stylesheet' type='text/css'>
+
+  <!-- styles -->
+  <link href="/ebuonweekend-web/resources/css/font-awesome.css" rel="stylesheet">
+  <link href="/ebuonweekend-web/resources/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/ebuonweekend-web/resources/css/animate.min.css" rel="stylesheet">
+  <link href="/ebuonweekend-web/resources/css/owl.carousel.css" rel="stylesheet">
+  <link href="/ebuonweekend-web/resources/css/owl.theme.css" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="/ebuonweekend-web/resources/css/sweetalert.css">
+
+  <!-- theme stylesheet -->
+  <link href="/ebuonweekend-web/resources/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+
+
+  <!-- customer stylesheet -->
+  <link href="/ebuonweekend-web/resources/css/custom_i5r/topCity.css" rel="stylesheet">
+  <link href="/ebuonweekend-web/resources/css/custom_i5r/house.css" rel="stylesheet">
+  <link href="/ebuonweekend-web/resources/css/custom_i5r/fieldManager.css" rel="stylesheet">
+  <link href="/ebuonweekend-web/resources/css/custom_i5r/wishlist.css" rel="stylesheet">
+  <link href="/ebuonweekend-web/resources/css/custom_i5r/inbox.css" rel="stylesheet">
+  <link href="/ebuonweekend-web/resources/css/custom_i5r/journeys.css" rel="stylesheet">
+  <link href="/ebuonweekend-web/resources/css/custom_i5r/myhouses.css" rel="stylesheet">
+  <link href="/ebuonweekend-web/resources/css/custom_i5r/account.css" rel="stylesheet">
+
+
+
+  <script src="/ebuonweekend-web/resources/js/libs/respond.min.js"></script>
+  <link rel="shortcut icon" href="/ebuonweekend-web/resources/img/favicon.ico">
+
+
+  <!-- *** try CSS for DATESPICKER ***-->
+    <!--<link href="/ebuonweekend-web/resources/css/custom_i5r/jquery-ui.css" rel="stylesheet">-->
+    <link href="/ebuonweekend-web/resources/css/custom_i5r/jquery-ui.structure.css" rel="stylesheet">
+    <link href="/ebuonweekend-web/resources/css/custom_i5r/jquery-ui.theme.css" rel="stylesheet">
+   <!-- fine try CSS-->
+
+  <!-- *** SCRIPTS TO INCLUDE ***
+    _________________________________________________________ -->
+  <!-- <link src="/ebuonweekend-web/resources/js/libs/jquery-1.11.0.min.js">
+   <link src="/ebuonweekend-web/resources/js/libs/bootstrap.min.js">
+   <link src="/ebuonweekend-web/resources/js/libs/jquery.cookie.js">
+   <link src="/ebuonweekend-web/resources/js/libs/waypoints.min.js">
+   <link src="/ebuonweekend-web/resources/js/libs/modernizr.js">
+   <link src="/ebuonweekend-web/resources/js/libs/bootstrap-hover-dropdown.js">
+   <link src="/ebuonweekend-web/resources/js/libs/owl.carousel.min.js">
+   <link src="/ebuonweekend-web/resources/js/libs/front.js">-->
+
+</head>
+
+<body style="padding-top: 90px">
+
+<ng-include src="'/ebuonweekend-web/resources/html/structure/navbar.html'"></ng-include>
+
+<ng-view>
+  <script src="/ebuonweekend-web/resources/js/libs/jquery-1.11.1.js"></script>
+  <script src="/ebuonweekend-web/resources/js/libs/jquery-ui-1.11.1.js"></script>
+  <script src="/ebuonweekend-web/resources/js/libs/jquery.cookie.js"></script>
+  <script src="/ebuonweekend-web/resources/js/custom_jquery_utility/jquery-ui.multidatespicker.js"></script>
+  <script src="/ebuonweekend-web/resources/js/custom_jquery_utility/jquery-custom-utility.js"></script>
+  <script src="/ebuonweekend-web/resources/js/libs/owl.carousel.min.js"></script>
+  <script src="/ebuonweekend-web/resources/js/libs/front.js"></script>
+
+  <script src="/ebuonweekend-web/resources/js/libs/waypoints.min.js"></script>
+  <script src="/ebuonweekend-web/resources/js/libs/modernizr.js"></script>
+</ng-view>
+
+<!-- MODAL LOGIN -->
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="Login">Customer login</h4>
+      </div>
+      <div class="modal-body" >
+        <form name="loginForm" ng-controller="authenticationController as auth" ng-submit="loginForm.$valid && auth.login()" novalidate>
+          <div class="form-group">
+            <input type="text" class="form-control" id="email-modal" ng-model="auth.fieldsLogin.nick" placeholder="Nickname" required>
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" id="password-modal" ng-model="auth.fieldsLogin.pass" placeholder="Password" required>
+          </div>
+
+          <p class="text-center">
+            <button type="submit" class="btn btn-primary"><i class="fa fa-sign-in"></i> Log in</button>
+          </p>
+        </form>
+
+        <p class="text-center text-muted">Not registered yet?</p>
+        <p class="text-center text-muted"><a href="#!/signup"><strong>Sign up now</strong></a>! It is easy and it can be done in 1&nbsp;minute and gives you access to start your fabulous week-end!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-include src="'/ebuonweekend-web/resources/html/structure/footer.html'"></ng-include>
+
+
+<!-- *** SCRIPTS TO INCLUDE ***
+    _________________________________________________________-->
+
+<script src="/ebuonweekend-web/resources/js/libs/bootstrap.min.js"></script>
+<script src="/ebuonweekend-web/resources/js/libs/bootstrap-hover-dropdown.js"></script>
+<script src="/ebuonweekend-web/resources/js/libs/sweetalert.min.js"></script>
+
+
+<!-- *** SCRIPTS ANGULAR ***
+_________________________________________________________ -->
+<script type="text/javascript" src="/ebuonweekend-web/resources/js/libs/angular.min.js"></script>
+<script type="text/javascript" src="/ebuonweekend-web/resources/js/libs/angular-route.min.js"></script>
+<script type="text/javascript" src="/ebuonweekend-web/resources/js/libs/angular-resource.min.js"></script>
+<script type="text/javascript" src="/ebuonweekend-web/resources/js/libs/angular-cookies.min.js"></script>
+<script type="text/javascript" src="/ebuonweekend-web/resources/js/libs/underscore-min.js"></script>
+<script type="text/javascript" src="/ebuonweekend-web/resources/js/libs/angular-pusher.min.js"></script>
+
+
+<script type="text/javascript" src="/ebuonweekend-web/resources/js/app.js"></script>
+<script type="text/javascript" src="/ebuonweekend-web/resources/js/directive/fileUploaderDirective.js"></script>
+
+<!--script type="text/javascript" src="/ebuonweekend-web/resources/js/libs/sha256.js"></script-->
+<script type="text/javascript" src="/ebuonweekend-web/resources/js/service/pagerService.js"></script>
+<script type="text/javascript" src="/ebuonweekend-web/resources/js/service/uploadService.js"></script>
+<script type="text/javascript" src="/ebuonweekend-web/resources/js/service/handService.js"></script>
+
+
+<script type="text/javascript" src="/ebuonweekend-web/resources/js/controller/authenticationController.js"></script>
+<script type="text/javascript" src="/ebuonweekend-web/resources/js/controller/accountController.js"></script>
+<script type="text/javascript" src="/ebuonweekend-web/resources/js/controller/searchController.js"></script>
+<script type="text/javascript" src="/ebuonweekend-web/resources/js/controller/wishlistController.js"></script>
+<script type="text/javascript" src="/ebuonweekend-web/resources/js/controller/homeController.js"></script>
+<script type="text/javascript" src="/ebuonweekend-web/resources/js/controller/houseController.js"></script>
+<script type="text/javascript" src="/ebuonweekend-web/resources/js/controller/sendController.js"></script>
+<script type="text/javascript" src="/ebuonweekend-web/resources/js/controller/chatController.js"></script>
+<script type="text/javascript" src="/ebuonweekend-web/resources/js/controller/journeyController.js"></script>
+<script type="text/javascript" src="/ebuonweekend-web/resources/js/controller/feedbackController.js"></script>
+<script type="text/javascript" src="/ebuonweekend-web/resources/js/controller/myhousesController.js"></script>
+<script type="text/javascript" src="/ebuonweekend-web/resources/js/controller/contactusController.js"></script>
+<script type="text/javascript" src="/ebuonweekend-web/resources/js/controller/newhouseController.js"></script>
+
+
+<script type="text/javascript" src="/ebuonweekend-web/resources/js/service/userService.js"></script>
+<script type="text/javascript" src="/ebuonweekend-web/resources/js/service/searchService.js"></script>
+<script type="text/javascript" src="/ebuonweekend-web/resources/js/service/accountService.js"></script>
+<script type="text/javascript" src="/ebuonweekend-web/resources/js/service/wishlistService.js"></script>
+<script type="text/javascript" src="/ebuonweekend-web/resources/js/service/navbarService.js"></script>
+<script type="text/javascript" src="/ebuonweekend-web/resources/js/service/ShowHouseService.js"></script>
+<script type="text/javascript" src="/ebuonweekend-web/resources/js/service/menuAccountService.js"></script>
+<script type="text/javascript" src="/ebuonweekend-web/resources/js/service/journeyService.js"></script>
+<script type="text/javascript" src="/ebuonweekend-web/resources/js/service/chatService.js"></script>
+<script type="text/javascript" src="/ebuonweekend-web/resources/js/service/feedbackService.js"></script>
+<script type="text/javascript" src="/ebuonweekend-web/resources/js/service/myhousesService.js"></script>
+<script type="text/javascript" src="/ebuonweekend-web/resources/js/service/contactusService.js"></script>
+<script type="text/javascript" src="/ebuonweekend-web/resources/js/service/editHouseService.js"></script>
+
+
+
+<script type="text/javascript" src="/ebuonweekend-web/resources/js/directive/accountMenuDirective.js"></script>
+<script type="text/javascript" src="/ebuonweekend-web/resources/js/directive/navbarAccountDirective.js"></script>
+
+<script src="https://js.pusher.com/3.2/pusher.min.js"></script>
+<script>
+
+    // Enable pusher logging - don't include this in production
+    Pusher.logToConsole = true;
+
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<div id="all">
+    <div id="content">
+        <div class="container">
+            <account-menu>
+            </account-menu>
+            <div class="col-md-9" id="customer-orders">
+                <div class="box">
+                    <h1>Leave feedback</h1>
+                    <p class="lead">It's time to leave a feedback of your last journeys! This could help you
+                    to have the best experience for your next vacation!</p>
+                    <hr>
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Handshake date</th>
+                                <!--<th>City</th>
+                                <th>Status</th>-->
+                                <th>Leave a feedback</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="myfeed in myfeeds">
+                                <th>{{myfeed.receiver}}</th>
+                                <td>{{myfeed.dataMessage.dayOfMonth}}/{{myfeed.dataMessage.monthValue}}/{{myfeed.dataMessage.year}}</td>
+                                <!--<td>la citta</td>
+                                <td><span class="label label-info">da fare o fatto</span>
+                                </td>-->
+                                <td>
+                                    <fieldset class="rating">
+                                        <input ng-checked="isSelected(5)" ng-click="setScore(5)" type="radio" id="star5{{$index}}" name="rating{{$index}}" value="5" /><label for="star5{{$index}}" title="Rocks!">5 stars</label>
+                                        <input ng-checked="isSelected(4)" ng-click="setScore(4)" type="radio" id="star4{{$index}}" name="rating{{$index}}" value="4" /><label for="star4{{$index}}" title="Pretty good">4 stars</label>
+                                        <input ng-checked="isSelected(3)" ng-click="setScore(3)" type="radio" id="star3{{$index}}" name="rating{{$index}}" value="3" /><label for="star3{{$index}}" title="Meh">3 stars</label>
+                                        <input ng-checked="isSelected(2)" ng-click="setScore(2)" type="radio" id="star2{{$index}}" name="rating{{$index}}" value="2" /><label for="star2{{$index}}" title="Kinda bad">2 stars</label>
+                                        <input ng-checked="isSelected(1)" ng-click="setScore(1)" type="radio" id="star1{{$index}}" name="rating{{$index}}" value="1" /><label for="star1{{$index}}" title="Sucks big time">1 star</label>
+                                    </fieldset>
+                                </td>
+                                <td>
+                                    <button ng-click="sendFeedback(myfeed.receiver)" class="btn btn-primary">Leave</button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

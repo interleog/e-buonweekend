@@ -1,0 +1,123 @@
+<div id="all">
+
+    <div id="content">
+        <div class="container">
+
+            <account-menu>
+            </account-menu>
+
+            <div class="col-md-9">
+                <div class="box">
+                    <h1>{{title}}</h1>
+                    <hr>
+                    <h3>Upload a photo of your house</h3>
+
+                    <!-- FORM PER UPLOAD IMAGE -->
+                    <form  name="form" enctype="multipart/form-data" ng-model="form" id="form" role="form">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-6 col-xs-12">
+                                <div class="text-left">
+                                    <p>Preview image house:</p>
+                                    <img ng-src="{{myNewHouse.pathimg}}" src="/ebuonweekend-web/resources/img/no-image.png" style="width: 200px; height: 120px;" alt="picture">
+
+                                    <input type='file' class="text-center center-block well well-sm" name="form.file" ng-value="form.file" value="{{form.file}}"
+                                           file-model="form.file" set-file-data="form.file = value;">
+                                    <button type="button" class="btn btn-primary" ng-click="uploadImageTest2()">Upload image...</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="city">City</label>
+                                    <input type="text" class="form-control" name="city" id="city" ng-model="myNewHouse.city">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="zip">Zip Code</label>
+                                    <input type="text" class="form-control" name="zip" id="zip" ng-model="myNewHouse.zip">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.row -->
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="Address">Address</label>
+                                    <input type="text" class="form-control" name="address" id="Address" ng-model="myNewHouse.address">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="mq">Square meters</label>
+                                    <input type="text" class="form-control" name="mq" id="mq" ng-model="myNewHouse.mq">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.row -->
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="location">Location</label>
+                                    <select class="form-control" id="location" ng-model="myNewHouse.tags">
+                                        <option value="sea">Sea</option>
+                                        <option value="mountain">Mountain</option>
+                                        <option value="city">City</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.row -->
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="description">Description</label>
+                                    <textarea id="description" class="form-control" ng-model="myNewHouse.descr"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ./row -->
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Select weekends in which this house is available (8 max)</label>
+                                    <div class="control-group">
+                                        <div class="input-group" id="from--input">
+                                            <input type="text" id="textbox_dates" class="form-control" ng-model="myNewHouse.availableDates">
+                                            <label for="textbox_dates" class="input-group-addon btn" onclick="activeMultiDatepicker()">
+                                                <i class="fa fa-calendar"></i>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Do you want your house to be shown on search page?</label>
+                                    <fieldset ng-model="myNewHouse.isAvaible">
+                                        <input style="cursor: pointer;" id="yes" type="radio" name="isAvaible" value="true" ng-model="available">
+                                            <label style="cursor: pointer;" for="yes">Yes</label><br>
+                                        <input style="cursor: pointer;" id="no"  type="radio" name="isAvaible" value="false" ng-model="notAvailable">
+                                            <label style="cursor: pointer;" for="no">No</label>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ./row -->
+                        <div class="row">
+                            <div class="col-sm-12 text-center">
+                                <button ng-click="addNewHouse()" type="submit" class="btn btn-primary" ng-if="isNewHouse"><i class="fa fa-envelope-o"></i> Upload House</button>
+                                <button ng-click="editHouse()" type="submit" class="btn btn-primary" ng-if="isEdit"><i class="fa fa-envelope-o"></i> Edit House</button>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- FINE FORM UPLOAD INFO HOUSE -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

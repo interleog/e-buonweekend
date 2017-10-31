@@ -1,0 +1,88 @@
+<!-- *** NAVBAR ***
+  _________________________________________________________ -->
+<div class="navbar navbar-fixed-top navbar-default yamm" role="navigation" id="navbar">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand home" ng-click="reloadHome()" data-animate-hover="bounce" href>
+                <img src="/ebuonweekend-web/resources/img/logo.png" style="width: 136px; height: 60px;" alt="e-BuonWeekend logo" class="hidden-xs">
+                <img src="/ebuonweekend-web/resources/img/logo-small.png" style="width: 90px; height: 60px;" alt="e-BuonWeekend logo" class="visible-xs"><span class="sr-only">e-BuonWeekend</span>
+            </a>
+            <div class="navbar-buttons">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".menuNavigation">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fa fa-align-justify"></i>
+                </button>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#search">
+                    <span class="sr-only">Toggle search</span>
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </div>
+        <!--/.navbar-header -->
+        <div class="navbar-collapse collapse menuNavigation" id="navigation">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="#!/about" data-toggle="collapse" data-target=".menuNavigation"><i class="fa fa-globe" aria-hidden="true"></i> How It Works</a>
+                </li>
+                <li>
+                    <a href="#!/search" data-toggle="collapse" data-target=".menuNavigation"><i class="fa fa-search" aria-hidden="true"></i> Search</a>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200" href><i class="fa fa-flag" aria-hidden="true"></i> Languages <b class="caret"></b></a>
+                    <ul class="dropdown-menu yamm-content">
+                        <li><a href="#" data-toggle="collapse" data-target=".menuNavigation">Italiano</a>
+                        </li>
+                        <li><a href="#" data-toggle="collapse" data-target=".menuNavigation">English</a>
+                        </li>
+                        <li><a href="#" data-toggle="collapse" data-target=".menuNavigation">Francais</a>
+                        </li>
+                        <li><a href="#" data-toggle="collapse" data-target=".menuNavigation">Espagnol</a>
+                        </li>
+                        <li><a href="#" data-toggle="collapse" data-target=".menuNavigation">Deutch</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="navbar-collapse collapse right">
+            <button type="button" class="btn navbar-btn btn-primary" data-toggle="collapse" data-target="#search">
+                <span class="sr-only">Toggle search</span>
+                <i class="fa fa-search"></i>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse right menuNavigation">
+            <navbar-account>
+                <!-- signup & login / account & logout -->
+            </navbar-account>
+        </div>
+
+        <!-- SEARCH BOX -->
+        <div class="collapse clearfix" id="search">
+            <form class="form-inline navbar-form" style="width:100%" role="search" ng-controller="navbarController as navbar">
+
+                <div class="form-group">
+                    <select class="form-control" id="location" ng-model="location_param">
+                        <option value="undefined">All location</option>
+                        <option value="sea">Sea</option>
+                        <option value="mountain">Mountain</option>
+                        <option value="city">City</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" id="search_by_dates" class="form-control" ng-model="date_param" placeholder="Search by date" onclick="activeDatepicker()" />
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" ng-model="city_param" placeholder="Search by city" />
+                </div>
+                <div class="form-group">
+
+			            <button type="submit" ng-click="navbar.saveFormData()" class="btn btn-primary" data-toggle="collapse" data-target="#search"><i class="fa fa-search"></i></button>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- *** NAVBAR END *** -->

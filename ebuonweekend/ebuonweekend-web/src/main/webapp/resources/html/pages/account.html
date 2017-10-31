@@ -1,0 +1,96 @@
+<div id="all">
+
+  <div id="content">
+    <div class="container">
+
+      <account-menu>
+      </account-menu>
+
+      <div class="col-md-9">
+        <div class="box">
+          <h1>My account</h1>
+          <hr>
+          <h3>Personal details</h3>
+          <!--<form ng-controller="editAccountController as editCtrl" ng-submit="editCtrl.saveChanges()">-->
+
+          <form  name="form" enctype="multipart/form-data" ng-model="form" id="form" role="form">
+            <div class="row">
+              <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="text-center">
+                  <img ng-src="{{myInfo.profilePicture}}" ng-click="uploadTrigger()" class="avatar img-circle img-thumbnail" alt="Profile Picture" style="cursor:pointer">
+                  <div id="middle">
+                    <span id="plus" ng-click="uploadTrigger()" style="cursor:pointer">+</span>
+                  </div>
+                  <!-- solo per il momento, poi sarà sostituito dal caricamento img -->
+                  <!-- <input type="hidden" value="{{myInfo.profilePicture}}" name="profilePicture">-->
+                  <!-- end -->
+                  <input  id="uploadImage" class="text-center center-block well well-sm" type='file' name="form.file" ng-value="form.file" value="{{form.file}}"
+                         file-model="form.file" set-file-data="form.file = value;" style="display:none">
+                  <button type="button" class="btn btn-primary" ng-click="uploadImageTest()">View selected image...</button>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="firstname">Firstname</label>
+                  <input type="text" class="form-control" name="firstName" id="firstname" ng-model="myInfo.firstName">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="lastname">Lastname</label>
+                  <input type="text" class="form-control" name="lastName" id="lastname" ng-model="myInfo.lastName">
+                </div>
+              </div>
+            </div>
+            <!-- /.row -->
+
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="Username">Username</label>
+                  <input type="text" class="form-control" name="nickName" id="Username" ng-model="myInfo.nickName" disabled>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="Password">Password</label>
+                  <input type="password" class="form-control" name="pass" id="Password" ng-model="myInfo.pass">
+                  <p style="font-size: small; color: lightsteelblue; ">Leave it blank if you don't want to change your password!</p>
+                </div>
+              </div>
+            </div>
+            <!-- /.row -->
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="phone">Telephone</label>
+                  <input type="text" class="form-control" name="telephone" id="phone" ng-model="myInfo.telephone">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="text" class="form-control" id="email" value="{{myInfo.email}}" disabled>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label>Status</label><br>
+                  <!--<input type="text" class="form-control" name="statoUtente" id="stato" value="{{myInfo.statoUtente}}" ng-model="myInfo.statoUtente">-->
+                  <input id="c_sea" type="checkbox" name="sea" ng-model="myStatus.sea"> Sea
+                  <br><input id="c_mountain" type="checkbox" name="mountain" ng-model="myStatus.mountain"> Mountain
+                  <br><input id="c_city" type="checkbox" name="city" ng-model="myStatus.city"> City
+                </div>
+              </div>
+              <div class="col-sm-12 text-center">
+                <button type="button" class="btn btn-primary"  ng-click="saveChanges()"><i class="fa fa-save"> </i> Save changes</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

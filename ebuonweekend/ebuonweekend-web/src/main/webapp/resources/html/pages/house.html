@@ -1,0 +1,76 @@
+<div id="all">
+    <div id="content">
+        <div class="container">
+            <div class="col-md-3">
+                <div class="box profile-sidebar">
+                    <!-- SIDEBAR USERPIC -->
+                    <div class="profile-userpic">
+                        <img ng-src="{{ host.profilePicture }}" class="img-responsive" class="img-circle" alt="">
+                    </div>
+                    <div class="profile-usertitle">
+                        <div class="profile-usertitle-name">
+                            {{ host.nickName }}
+                        </div>
+                    </div>
+                    <div style="margin:auto">
+                        <h5 >Feedback</h5>
+                        <fieldset class="myrating">
+                            <input  ng-checked="isSelected(5)" type="radio" id="star5" name="rating5" value="5" disabled/><label for="star5" title="Rocks!">5 stars</label>
+                            <input  ng-checked="isSelected(4)" type="radio" id="star4" name="rating4" value="4" disabled/><label for="star4" title="Pretty good">4 stars</label>
+                            <input  ng-checked="isSelected(3)" type="radio" id="star3" name="rating3" value="3" disabled/><label for="star3" title="Meh">3 stars</label>
+                            <input  ng-checked="isSelected(2)" type="radio" id="star2" name="rating2" value="2" disabled/><label for="star2" title="Kinda bad">2 stars</label>
+                            <input  ng-checked="isSelected(1)" type="radio" id="star1" name="rating1" value="1" disabled/><label for="star1" title="Sucks big time">1 star</label>
+                        </fieldset>
+                    </div>
+                    <!--<div class="profile-userbuttons">
+                    </div>-->
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="row" id="productMain">
+                    <div class="col-sm-6">
+                        <div id="mainImage">
+                            <img style="height: 300px; border-bottom: 10px;" ng-src="{{ house.pathimg }}" alt="house image" class="img-responsive">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="box" style="height: 300px;">
+                            <h1 class="text-center">{{ house.city }}</h1>
+                            <h3 class="text-left">Description</h3>
+                            <p class="goToDescription"><p> {{ house.descr | limitTo: 150}} </p>
+                            <div class="text-center buttons" style="margin-bottom: 10px !important;">
+                                <a ng-controller="sendController" ng-click="sendHand(host.nickName, house.id)" class="btn btn-primary" href><i class="fa fa-hand-o-left"></i> Hand</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box" id="details">
+                    <p>
+                    <h4>House Details</h4>
+                    <ul>
+                        <li>Location: {{house.tags}}</li>
+                        <li>Square meters: {{house.mq}}</li>
+                        <li>Available dates: {{house.availableDates}}</li>
+                    </ul>
+                    <h4>Terms of use</h4>
+                    <ul>
+                        <li>No smoking</li>
+                        <li>No animals allowed inside</li>
+                    </ul>
+                    <hr>
+                    <div class="social">
+                        <h4>Share it to your friends</h4>
+                        <p>
+                            <a href="#" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
+                            <a href="#" class="external gplus" data-animate-hover="pulse"><i class="fa fa-google-plus"></i></a>
+                            <a href="#" class="external twitter" data-animate-hover="pulse"><i class="fa fa-twitter"></i></a>
+                            <a href="#" class="email" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.col-md-9 -->
+    </div>
+    <!-- /.container -->
+</div>

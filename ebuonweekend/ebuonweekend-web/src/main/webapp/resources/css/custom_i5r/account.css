@@ -1,0 +1,31 @@
+.img-thumbanil{
+    z-index: 1;
+    opacity: 1;
+    display: block;
+    transition: .5s ease;
+    backface-visibility: hidden;
+    width: 200px;
+    height: 200px;
+}
+#middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+.text-center:hover img{
+    opacity: .5;
+}
+.text-center:hover #middle {
+    opacity: 2;
+}
+#plus{
+    font-family:Helvetica;
+    font-weight:900;
+    color: #4fbfa8;
+    font-size:96px;
+    z-index: 2;
+}

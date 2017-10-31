@@ -1,0 +1,46 @@
+<div id="all">
+    <div id="content">
+        <div class="container">
+            <account-menu>
+            </account-menu>
+            <div class="col-md-9" id="wishlist">
+                <div class="box">
+                    <h1>My Houses</h1>
+                    <div class="lead">
+                        All your houses are here!
+                        <p class="text-right"><input type="button" ng-click="goAddHouse()" class="btn btn-primary" id="addNewHouse" value="Add House"></p>
+                    </div>
+                    <hr>
+                    <div class="row products">
+                        <div class="col-md-6 col-sm-2" ng-repeat="house in myhouses">
+                            <div class="product">
+                                <div class="flip-container">
+                                    <div class="flipper">
+                                        <div class="front">
+                                            <img ng-click="showHouse(house)" ng-src="{{house.pathimg}}" alt="" class="img-responsive myhouses">
+                                        </div>
+                                        <div class="back">
+                                            <img ng-click="showHouse(house)" ng-src="{{house.pathimg}}" alt="" class="img-responsive myhouses">
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="detail.html" class="invisible">
+                                    <img ng-src="{{house.pathimg}}" alt="" class="img-responsive myhouses">
+                                </a>
+                                <div class="text">
+                                    <h3>{{house.city}} </a></h3>
+                                    <p class="buttons">
+                                        <a ng-click="editHouse(house.id)" class="btn btn-default" href>Edit house</a>
+                                        <a ng-click="delete(house.id)" class="btn btn-primary" href><i class="fa fa-trash-o"></i>Delete House</a>
+                                    </p>
+                                </div>
+                                <!-- /.text -->
+                            </div>
+                            <!-- /.product -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

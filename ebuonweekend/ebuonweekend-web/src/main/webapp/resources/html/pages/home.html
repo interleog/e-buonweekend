@@ -1,0 +1,247 @@
+<div id="all">
+    <div id="content">
+        <div class="container">
+            <div class="col-md-12">
+                <div id="main-slider">
+                    <div class="item">
+                        <img class="img-responsive" src="/ebuonweekend-web/resources/img/rsz_city1.jpg" alt="cover1" >
+                    </div>
+                    <div class="item">
+                        <img class="img-responsive" src="/ebuonweekend-web/resources/img/rsz_sea1.jpg" alt="cover2">
+                    </div>
+                    <div class="item">
+                        <img class="img-responsive" src="/ebuonweekend-web/resources/img/rsz_mountain1.jpg" alt="cover3">
+                    </div>
+                    <div class="item">
+                        <img class="img-responsive" src="/ebuonweekend-web/resources/img/rsz_aereo1.jpg" alt="cover4">
+                    </div>
+                </div>
+                <!-- /#main-slider -->
+            </div>
+        </div>
+        <!-- *** ADVANTAGES HOMEPAGE ***
+_________________________________________________________ -->
+        <div id="advantages">
+            <div class="container">
+                <div class="same-height-row">
+                    <h2>Just 3 free steps to enjoy your week-end!</h2>
+                    <div class="col-sm-4">
+                        <div class="box same-height">
+                            <div class="icon"><i class="fa fa-home"></i>
+                            </div>
+
+                            <h3><p style="color: #4fbfa8">Add your house</p></h3>
+                            <p>Once registered, add an house and start to search your holiday location.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="box same-height">
+                            <div class="icon"><i class="fa fa-inbox"></i>
+                            </div>
+
+                            <h3><p style="color: #4fbfa8">Send/receive hands</p></h3>
+                            <p>Get in touch with other users to find an agreement</p>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="box same-height">
+                            <div class="icon"><i class="fa fa-thumbs-up"></i>
+                            </div>
+
+                            <h3><p style="color: #4fbfa8">E... BUONWEEKEND!</p></h3>
+                            <p>Your week-end is finally ready!</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container -->
+        </div>
+        <!-- /#advantages -->
+        <!-- *** ADVANTAGES END *** -->
+
+
+        <!-- *** HOT PRODUCT SLIDESHOW ***
+_________________________________________________________ -->
+        <div id="hot" ng-controller="homeController as homeCtrl">
+            <div class="box">
+                <div class="container">
+                    <div class="col-md-12">
+                        <h2>Hot destinations</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="product-slider">
+                    <div class="item">
+                        <div class="product topCity">
+                            <div class="flip-container">
+                                <div class="flipper">
+                                    <div class="front">
+                                        <a ng-click="homeCtrl.searchDest('Catania')" href>
+                                            <img src="/ebuonweekend-web/resources/img/Catania.jpg" alt="" class="img-responsive imgTopCity">
+                                        </a>
+                                    </div>
+                                    <div class="back">
+                                        <a ng-click="homeCtrl.searchDest('Catania')" href>
+                                            <img src="/ebuonweekend-web/resources/img/Catania.jpg" alt="" class="img-responsive imgTopCity" style="width:100%; height:200px;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <a ng-click="homeCtrl.searchDest('Catania')" class="invisible" href>
+                                <img src="/ebuonweekend-web/resources/img/Catania.jpg" alt="" class="img-responsive imgTopCity" style="width:100%; height:200px;">
+                            </a>
+                            <div class="text">
+                                <h3><a ng-click="homeCtrl.searchDest('Catania')" href>Catania</a></h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="product topCity">
+                            <div class="flip-container">
+                                <div class="flipper">
+                                    <div class="front">
+                                        <a ng-click="homeCtrl.searchDest('Afragola')" href>
+                                            <img src="/ebuonweekend-web/resources/img/Afragola.jpg" alt="" class="img-responsive imgTopCity">
+                                        </a>
+                                    </div>
+                                    <div class="back">
+                                        <a ng-click="homeCtrl.searchDest('Afragola')" href>
+                                            <img src="/ebuonweekend-web/resources/img/Afragola.jpg" alt="" class="img-responsive imgTopCity">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <a ng-click="homeCtrl.searchDest('Afragola')" class="invisible" href>
+                                <img src="/ebuonweekend-web/resources/img/Afragola.jpg" alt="" class="img-responsive imgTopCity">
+                            </a>
+                            <div class="text">
+                                <h3><a ng-click="homeCtrl.searchDest('Afragola')" href>Afragola</a></h3>
+                            </div>
+                            <!-- /.text -->
+
+                            <!--div class="ribbon sale">
+                                <div class="theribbon">SALE</div>
+                                <div class="ribbon-background"></div>
+                            </div>
+                            <!-- /.ribbon -->
+
+                            <!--div class="ribbon new">
+                                <div class="theribbon">NEW</div>
+                                <div class="ribbon-background"></div>
+                            </div>
+                            <!-- /.ribbon -->
+
+                            <!--div class="ribbon gift">
+                                <div class="theribbon">GIFT</div>
+                                <div class="ribbon-background"></div>
+                            </div>
+                            <!-- /.ribbon -->
+                        </div>
+                        <!-- /.product -->
+                    </div>
+
+                    <div class="item">
+                        <div class="product topCity">
+                            <div class="flip-container">
+                                <div class="flipper">
+                                    <div class="front">
+                                        <a ng-click="homeCtrl.searchDest('Giugliano')" href>
+                                            <img src="/ebuonweekend-web/resources/img/Giugliano.jpg" alt="" class="img-responsive imgTopCity">
+                                        </a>
+                                    </div>
+                                    <div class="back">
+                                        <a ng-click="homeCtrl.searchDest('Giugliano')" href>
+                                            <img src="/ebuonweekend-web/resources/img/Giugliano.jpg" alt="" class="img-responsive imgTopCity">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <a ng-click="homeCtrl.searchDest('Giugliano')" class="invisible" href>
+                                <img src="/ebuonweekend-web/resources/img/Giugliano.jpg" alt="" class="img-responsive imgTopCity">
+                            </a>
+                            <div class="text">
+                                <h3><a ng-click="homeCtrl.searchDest('Giugliano')" href>Giugliano</a></h3>
+                            </div>
+                            <!-- /.text -->
+                        </div>
+                        <!-- /.product -->
+                    </div>
+
+                    <div class="item">
+                        <div class="product topCity">
+                            <div class="flip-container">
+                                <div class="flipper">
+                                    <div class="front">
+                                        <a ng-click="homeCtrl.searchDest('Mascali')" href>
+                                            <img src="/ebuonweekend-web/resources/img/Mascali.JPG" alt="" class="img-responsive imgTopCity" style="width:100%; height:200px;">
+                                        </a>
+                                    </div>
+                                    <div class="back">
+                                        <a ng-click="homeCtrl.searchDest('Mascali')" href>
+                                            <img src="/ebuonweekend-web/resources/img/Mascali.JPG" alt="" class="img-responsive imgTopCity" style="width:100%; height:200px;">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <a ng-click="homeCtrl.searchDest('Mascali')" class="invisible" href>
+                                <img src="/ebuonweekend-web/resources/img/Mascali.JPG" alt="" class="img-responsive imgTopCity">
+                            </a>
+                            <div class="text">
+                                <h3><a ng-click="homeCtrl.searchDest('Mascali')" href>Mascali</a></h3>
+                            </div>
+                            <!-- /.text -->
+                        </div>
+                        <!-- /.product -->
+                    </div>
+
+                    <div class="item">
+                        <div class="product topCity">
+                            <div class="flip-container">
+                                <div class="flipper">
+                                    <div class="front">
+                                        <a ng-click="homeCtrl.searchDest('Siracusa')" href>
+                                            <img src="/ebuonweekend-web/resources/img/Siracusa.jpg" alt="" class="img-responsive imgTopCity">
+                                        </a>
+                                    </div>
+                                    <div class="back">
+                                        <a ng-click="homeCtrl.searchDest('Siracusa')" href>
+                                            <img src="/ebuonweekend-web/resources/img/Siracusa.jpg" alt="" class="img-responsive imgTopCity">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <a ng-click="homeCtrl.searchDest('Siracusa')" class="invisible" href>
+                                <img src="/ebuonweekend-web/resources/img/Siracusa.jpg" alt="" class="img-responsive imgTopCity">
+                            </a>
+                            <div class="text">
+                                <h3><a ng-click="homeCtrl.searchDest('Siracusa')" href>Siracusa</a></h3>
+                            </div>
+                            <!-- /.text -->
+
+                            <!--div class="ribbon new">
+                                <div class="theribbon">NEW</div>
+                                <div class="ribbon-background"></div>
+                            </div-->
+                            <!-- /.ribbon -->
+                        </div>
+                        <!-- /.product -->
+                    </div>
+                </div>
+                <!-- /.product-slider -->
+            </div>
+            <!-- /.container -->
+
+        </div>
+        <!-- /#hot -->
+
+        <!-- *** HOT END *** -->
+        <!-- /#content -->
+    </div>
+</div>

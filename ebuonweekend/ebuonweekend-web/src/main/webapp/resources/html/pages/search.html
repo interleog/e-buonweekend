@@ -1,0 +1,155 @@
+<div id="all">
+
+    <div id="content">
+        <div class="container">
+
+            <div class="col-md-12">
+
+
+
+                <div class="box-search">
+                    <h1 style="text-align: center;">Search </h1>
+                    <p>You're searching the following city: {{getCity()}} </p>
+                </div>
+
+                <div class="box-search info-bar">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-4 products-showing">
+                            Showing <strong>{{pageSize}}</strong> of <strong>{{houses.length}}</strong> houses
+                        </div>
+
+                        <div class="col-sm-12 col-md-8  products-number-sort">
+                            <div class="row">
+                                <form class="form-inline">
+                                    <div class="col-md-6 col-sm-6">
+                                        <div class="products-number">
+                                            <strong>Show</strong>  <a ng-href="" class="btn btn-default btn-sm " ng-class="{'btn-primary' :pageSize==8}" ng-click="changePageSize(8)">8</a>  <a ng-href="" class="btn btn-default btn-sm" ng-class="{'btn-primary' :pageSize==16}" ng-click="changePageSize(16)" >16</a>  <a ng-href="" class="btn btn-default btn-sm" ng-class="{'btn-primary' :pageSize==houses.length}" ng-click="changePageSize(houses.length)">All</a> houses
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        <div class="products-sort-by">
+                                            <strong>Sort by</strong>
+                                            <select name="sort-by" class="form-control">
+                                                <option>Feedback</option>
+                                                <option>Nuove case</option>
+                                                <option>Libere quanto prima</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row products">
+                  <!--  <div class="col-md-3 col-sm-4" ng-repeat="house in houses | limitTo:8:0" >
+                        <div class="product" style="width:100%; height:366px;">
+                            <div class="flip-container">
+                                <div class="flipper">
+                                    <div class="front">
+
+                                        <img ng-src="{{ house.pathimg }}" alt="" class="img-responsive" style="width:100%; height:180px;">
+
+                                    </div>
+                                    <div class="back">
+
+                                        <img ng-src="{{ house.pathimg }}" alt="" class="img-responsive" style="width:100%; height:180px;">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#" class="invisible">
+                                <img ng-src="{{ house.pathimg }}" alt="" class="img-responsive" style="width:100%; height:180px;">
+                            </a>
+                            <div class="text">
+                                <h3>
+                                    <a>{{ house.city }}</a>
+                                </h3>
+                                <p class="buttons">
+                                    <a class="btn btn-default" href>Details </a>
+                                    <a class="btn btn-primary" href><i class="fa fa-hand-o-left"></i> Hand</a>
+                                    <a ng-controller="wishlistController as wish" ng-click="wish.send('{{house.id}}')" class="btn btn-secondary" href><i class="fa fa-star"></i> Add Wishlist</a>
+                                </p>
+                            </div>
+                            &lt;!&ndash; /.text &ndash;&gt;
+                        </div>
+                        &lt;!&ndash; /.product &ndash;&gt;
+
+                    </div>-->
+
+
+
+                    <!-- how many pages -->
+                        <div  class="col-md-3 col-sm-4" ng-repeat="item in items">
+                                <!-- items being paged -->
+                                <div >
+                                    <div class="product" style="width:100%; height:366px;">
+                                        <div class="flip-container">
+                                            <div class="flipper">
+                                                <div class="front">
+
+                                                    <img ng-click="showHouse(item)" ng-src="{{ item.pathimg }}" alt="" class="img-responsive" style="width:100%; height:180px;">
+
+                                                </div>
+                                                <div class="back">
+
+                                                    <img ng-click="showHouse(item)" ng-src="{{ item.pathimg }}" alt="" class="img-responsive" style="width:100%; height:180px;">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <a href="#" class="invisible">
+                                            <img ng-src="{{ item.pathimg }}" alt="" class="img-responsive" style="width:100%; height:180px;">
+                                        </a>
+                                        <div class="text">
+                                            <h3>
+                                                <a>{{ item.city }}</a>
+                                            </h3>
+                                            <p class="buttons">
+                                                <a ng-click="showHouse(item)" class="btn btn-default" href>Details</a>
+                                                <a ng-controller="sendController" ng-click="sendHand(item.utente, item.id)" class="btn btn-primary" href><i class="fa fa-hand-o-left"></i> Hand</a>
+                                                <a ng-controller="sendController" ng-click="addWish(item.id)" class="btn btn-secondary" href><i class="fa fa-star"></i> Add Wishlist</a>
+                                            </p>
+                                        </div>
+                                        <!-- /.text -->
+                                    </div>
+                                    <!-- /.product -->
+                                </div>
+                                <!-- pager -->
+
+
+                        </div>
+
+
+
+                </div>
+                <div class="row pages">
+                    <ul ng-if="pager.pages.length" class="pagination">
+                        <li ng-class="{disabled:pager.currentPage === 1}">
+                            <a href ng-click="setPage(1)">First</a>
+                        </li>
+                        <li ng-class="{disabled:pager.currentPage === 1}">
+                            <a href ng-click="setPage(pager.currentPage - 1)">Previous</a>
+                        </li>
+                        <li ng-repeat="page in pager.pages" ng-class="{active:pager.currentPage === page}">
+                            <a href ng-click="setPage(page)">{{page}}</a>
+                        </li>
+                        <li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+                            <a href ng-click="setPage(pager.currentPage + 1)">Next</a>
+                        </li>
+                        <li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+                            <a href ng-click="setPage(pager.totalPages)">Last</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /.col-md-9 -->
+
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- /#content -->
+
+</div>
+<!-- /#all -->

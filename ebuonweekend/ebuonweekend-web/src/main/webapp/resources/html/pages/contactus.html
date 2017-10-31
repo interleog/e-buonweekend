@@ -1,0 +1,125 @@
+<div id="all">
+
+    <div id="content">
+        <div class="container">
+
+
+
+            <div class="col-md-3">
+                <!-- *** PAGES MENU ***
+_________________________________________________________ -->
+                <div class="panel panel-default sidebar-menu">
+
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Contact</h3>
+                    </div>
+
+                    <div class="panel-body">
+                        <ul class="nav nav-pills nav-stacked">
+                            <li class = "active">
+                                <a href="#!/contactus">Contact Us</a>
+                            </li>
+                            <li >
+                                <a href="#!/contactus/faq">FAQ</a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+
+
+
+
+            </div>
+
+            <div class="col-md-9">
+
+
+                <div class="box" id="contact">
+                    <h1>Contact Us</h1>
+
+                    <p class="lead">Are you curious about something? Do you have some kind of problem with other users?</p>
+                    <p>Please feel free to contact us, our customer service center is working for you 24/7.</p>
+
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <h3><i class="fa fa-map-marker"></i> Address</h3>
+                            <p>
+                                Via Pezzotti, 8<br>
+                                Milano<br>
+                                <strong>Italia</strong>
+                            </p>
+                        </div>
+                        <!-- /.col-sm-4 -->
+                        <div class="col-sm-4">
+                            <h3><i class="fa fa-phone"></i> Call center</h3>
+                            <p class="text-muted">This number is toll free if calling from Italy otherwise we advise you to use the electronic form of communication.</p>
+                            <p><strong>+39 389 110 0000</strong>
+                            </p>
+                        </div>
+                        <!-- /.col-sm-4 -->
+                        <div class="col-sm-4">
+                            <h3><i class="fa fa-envelope"></i> Electronic support</h3>
+                            <p class="text-muted">Please feel free to write an email to us or to use our electronic ticketing system.</p>
+                            <ul>
+                                <li><strong><a href="mailto:PMO@digitalgarage.uiip.it">PMO@digitalgarage.uiip.it</a></strong>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- /.col-sm-4 -->
+                    </div>
+                    <!-- /.row -->
+
+                    <hr>
+
+                    <div id="map" style="position: relative; overflow: hidden;">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5598.803084490763!2d9.17784041000368!3d45.4415639604728!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786c40c744b4d8f%3A0x860fc6e24f874966!2sVia+Giovanni+Pezzotti%2C+8%2C+20141+Milano%2C+Italia!5e0!3m2!1sit!2sit!4v1486076585437" width="785" height="410" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div>
+
+                    <hr>
+                    <h2>Contact form</h2>
+
+                    <form name="contactForm" ng-submit="contactForm.$valid && sendMessageToAdmin()" novalidate>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" id="email" ng-model="message.sender" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="subject">Subject</label>
+                                    <input type="text" class="form-control" id="subject" ng-model="message.object" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="message">Message</label>
+                                    <textarea id="message" class="form-control" ng-model="message.text" required></textarea>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 text-center">
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-envelope-o"></i> Send message</button>
+                            </div>
+                        </div>
+                        <!-- /.row -->
+                    </form>
+
+
+                </div>
+
+
+            </div>
+            <!-- /.col-md-9 -->
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- /#content -->
+
+
+</div>
+<!-- /#all -->

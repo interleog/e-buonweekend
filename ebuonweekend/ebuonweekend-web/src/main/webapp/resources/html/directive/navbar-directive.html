@@ -1,0 +1,61 @@
+<ul class="nav navbar-nav" ng-hide="navCtrl.isShown()">
+    <li>
+        <a href="#!/signup"  data-toggle="collapse" data-target=".menuNavigation"><i class="fa fa-arrow-right" aria-hidden="true"></i> Sign up</a>
+    </li>
+    <li>
+        <a data-toggle="modal" data-target="#login-modal" href><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
+    </li>
+</ul>
+
+<ul class="nav navbar-nav" ng-show="navCtrl.isShown()">
+    <li ng-controller="navbarController">
+        <a  class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200" href>NOTIFICATIONS:  <span class="badge">{{handRequest}}</span><b class="caret"></b></a>
+        <ul class="dropdown-menu yamm-content" ng-show="handRequest != 0">
+            <li ng-repeat="hand in hands" ng-show="handRequest != 0">
+                <a ng-click="toChat()" data-toggle="collapse" data-target=".menuNavigation" href ><i class="fa fa-bell"></i>Notification by {{hand.sender}}</a>
+            </li>
+        </ul>
+    </li>
+    <!--<li>
+        <a href="#!/account" data-toggle="collapse" data-target=".menuNavigation"><i class="fa fa-user" aria-hidden="true"></i> ACCOUNT</a>
+    </li>-->
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200" href><i class="fa fa-user" aria-hidden="true"></i> ACCOUNT <b class="caret"></b></a>
+        <ul class="dropdown-menu yamm-content">
+            <li><a href="#!/account" data-toggle="collapse" data-target=".menuNavigation"><i class="fa fa-user"></i>My Account</a>
+            </li>
+            <li><a href="#!/account/myhouses" data-toggle="collapse" data-target=".menuNavigation"><i class="fa fa-home"></i>My Houses</a>
+            </li>
+            <li><a href="#!/account/myjourneys" data-toggle="collapse" data-target=".menuNavigation"><i class="fa fa-list"></i>My Journeys</a>
+            </li>
+            <li><a href="#!/account/leavefeedback" data-toggle="collapse" data-target=".menuNavigation"><i class="fa fa-star"></i>My Feedbacks</a>
+            </li>
+            <li><a href="#!/account/mywishlist" data-toggle="collapse" data-target=".menuNavigation"><i class="fa fa-heart"></i>My Wishlist</a>
+            </li>
+            <li><a href="#!/account/chat" data-toggle="collapse" data-target=".menuNavigation"><i class="fa fa-comments"></i>Chat</a>
+            </li>
+        </ul>
+    </li>
+    <!-- FUTURISTIC DROPDOWN MANAGEMENT OF THE ACCOUNT
+    <li>
+        <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200" href>ACCOUNT<b class="caret"></b></a>
+        <ul class="dropdown-menu yamm-content">
+            <li>
+                <a href ng-click="navCtrl.setTab(1)"><i class="fa fa-user"></i>MY ACCOUNT</a>
+            </li>
+            <li>
+                <a href ng-click="navCtrl.setTab(2)"><i class="fa fa-home"></i>MY HOUSES</a>
+            </li>
+            <li>
+                <a href ng-click="navCtrl.setTab(3)"><i class="fa fa-list"></i>MY JOURNEYS</a>
+            </li>
+            <li>
+                <a href ng-click="navCtrl.setTab(4)"><i class="fa fa-star"></i>MY WISHLIST</a>
+            </li>
+        </ul>
+    </li>
+    END FUTURISTIC DREAM -->
+    <li>
+        <a ng-click="navCtrl.logout()" data-toggle="collapse" data-target=".menuNavigation" href><i class="fa fa-power-off" aria-hidden="true"></i> LOG OUT</a>
+    </li>
+</ul>

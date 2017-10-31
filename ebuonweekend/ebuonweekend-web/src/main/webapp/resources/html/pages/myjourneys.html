@@ -1,0 +1,48 @@
+<div id="all">
+
+    <div id="content">
+        <div class="container">
+            <account-menu>
+
+            </account-menu>
+            <div class="col-md-9" id="customer-orders">
+                <div class="box">
+                    <h1>My journeys</h1>
+                    <p class="lead">You already complete {{myjourneyList.length}} journeys.</p>
+                    <p class="lead">You have {{myfeeds.length}} feedback to leave.</p>
+                    <hr>
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th>City</th>
+                                <th>House Owner</th>
+                                <th>Address</th>
+                                <th>Date</th>
+                                <th>Feedback</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="journey in myjourneyList">
+                                <td><b>{{journey.city}}</b></td>
+                                <td>{{journey.houseOwner}}</td>
+                                <td>{{journey.address}}</td>
+                                <td>{{journey.journeyDate}}</td>
+                                <td>
+                                    <fieldset class="myrating">
+                                        <input  ng-checked="isSelected({{$index}},5)" type="radio" id="star5{{$index}}" name="rating{{$index}}" value="5" disabled/><label for="star5{{$index}}" title="Rocks!">5 stars</label>
+                                        <input  ng-checked="isSelected({{$index}},4)" type="radio" id="star4{{$index}}" name="rating{{$index}}" value="4" disabled/><label for="star4{{$index}}" title="Pretty good">4 stars</label>
+                                        <input  ng-checked="isSelected({{$index}},3)" type="radio" id="star3{{$index}}" name="rating{{$index}}" value="3" disabled/><label for="star3{{$index}}" title="Meh">3 stars</label>
+                                        <input  ng-checked="isSelected({{$index}},2)" type="radio" id="star2{{$index}}" name="rating{{$index}}" value="2" disabled/><label for="star2{{$index}}" title="Kinda bad">2 stars</label>
+                                        <input  ng-checked="isSelected({{$index}},1)" type="radio" id="star1{{$index}}" name="rating{{$index}}" value="1" disabled/><label for="star1{{$index}}" title="Sucks big time">1 star</label>
+                                    </fieldset>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

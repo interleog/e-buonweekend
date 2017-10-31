@@ -1,0 +1,134 @@
+<div id="all">
+
+    <div id="content">
+        <div class="container">
+            <account-menu>
+
+            </account-menu>
+            <div class="col-md-9" class="container">
+                <div class="box">
+                    <h1>Chat</h1>
+                    <p class="lead">Get in touch with other users</p>
+                    <hr>
+                    <div class="row products">
+
+                        <!-- Contacts -->
+                        <div class="chat_container">
+                            <div class="col-sm-3 chat_sidebar">
+                                <div class="row">
+                                    <div id="custom-search-input-posta">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" placeholder="Conversation...">
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div id="lista_membri" class="member_list">
+                                        <ul id="lista-conversazioni" class="list-unstyled">
+                                            <li ng-repeat="user in users" ng-click="showConversation(user)">
+                                                <span class="chat-img pull-left">
+                                                    <img ng-src="{{ user.profilePicture }}" alt="User Avatar" class="img-circle">
+                                                </span>
+                                                <div class="chat-body clearfix">
+                                                    <div class="header_sec">
+                                                        <strong class="primary-font">{{ user.firstName }}&nbsp{{ user.lastName }}</strong>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div><!--message_section-->
+                        </div>
+
+                        <!-- Conversation -->
+                        <div class="col-sm-9 message_section">
+                            <div class="row">
+
+                                <div id="chat" class="chat_area">
+                                    <ul id="lista-messaggi" class="list-unstyled">
+                                        <li ng-repeat="msg in conversation" ng-class="{'left clearfix' : true, 'admin_chat' : isMyMessage(msg.sender)}">
+                                            <span class="chat-img1" ng-class="{'pull-right' : isMyMessage(msg.sender), 'pull-left' : !isMyMessage(msg.sender)}">
+                                                <img style="cursor: pointer;" ng-src="{{picture}}" alt="User Avatar" class="img-circle" ng-if="!isMyMessage(msg.sender)" ng-click="searchHouseUser(msg.sender)">
+                                                <img ng-src="{{myProfilePicture}}" alt="User Avatar" class="img-circle" ng-if="isMyMessage(msg.sender)">
+                                            </span>
+                                            <div class="chat-body1 clearfix">
+                                                <p>{{msg.message}}</p>
+                                                <div ng-class="{'chat_time' : true, 'pull-right' : !isMyMessage(msg.sender), 'pull-left' : isMyMessage(msg.sender)}">
+                                                    {{msg.dataMessage.dayOfMonth}}/{{msg.dataMessage.monthValue}}/{{msg.dataMessage.year}}
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div><!--chat_area-->
+
+
+                                <div class="message_write">
+                                    <textarea id="messageChatText" ng-model="message" class="form-control" placeholder="Insert your message..." style="resize: none; margin-bottom: 10px;"></textarea>
+                                    <div class="clearfix"></div>
+                                    <!--<div class="chat_bottom"><a href="#" class="pull-left upload_btn"><i class="fa fa-cloud-upload" aria-hidden="true"></i>
+                                        Add Files</a>-->
+                                    <button id="selectDays" ng-click="selectDays(nick_rcv)" class="pull-left btn btn-primary" data-toggle="modal" data-target="#selectDaysModal" ng-disabled="buttonHandshake">Handshake!</button>
+                                    <button id="sendMsgButton" ng-click="sendPrivateMessage(nick_rcv)" class="pull-right btn btn-primary" ng-disabled="buttonSend">Send</button>
+
+
+
+                                    <!-- Modal Select Days -->
+                                    <div class="modal fade" id="selectDaysModal" role="dialog">
+                                        <div class="modal-dialog">
+
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                <div class="modal-body container">
+                                                    <h2>Select the weekend for your journey</h2>
+
+                                                    <div ng-repeat="house in houses">
+                                                        <form id="'houseDays'+house.id" name="selectHouseDays" >
+                                                            <h3>City: {{house.city}}</h3>
+                                                            Available dates:
+                                                            <select name="selectedDay" form="'houseDays'+house.id" class="form-control" ng-model="data_selected" style="width:auto">
+                                                                <option value="{{data}}" ng-hide="isOneDate" ng-repeat="data in house.availableDates track by $index">{{house.city}} {{data}}</option>
+                                                                <option value="{{house.availableDates}}" ng-show="isOneDate" >{{house.city}} {{house.availableDates}}</option>
+                                                            </select><br>
+                                                            <button type="button" ng-click="submitFormSelectHouseDays(house.utente, house.id, data_selected)" class="pull-left btn btn-primary" data-toggle="modal" data-target="#finalhandshake" data-dismiss="modal" ng-disabled="buttonHandshake">Send Handshake</button>
+                                                        <br><br>
+                                                        </form>
+                                                    </div>
+                                                    <button type="button" ng-show="showDismissButton" ng-click="deleteJourney(nick_rcv)" class="pull-left btn btn-danger" data-dismiss="modal" >DISMISS Handshake</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                    <!-- Modal Final Handshake -->
+                                    <div class="modal fade" id="finalhandshake" role="dialog">
+                                        <div class="modal-dialog">
+
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                <div class="modal-body">
+                                                    <img src="/ebuonweekend-web/resources/img/logo.png" class="img-responsive img-centered" alt="">
+                                                    <p> Congratulazioni, hai raggiunto un accordo per lo scambio. Leggi  attentamente <a href="#"> termini e condizioni</a> per conoscere il servizio.
+                                                        Inoltre per lo scambio sicuro delle chiavi ti consigliamo l'utilizzo di una simpatica app <a href="http://138.68.133.189:8080/bubbleme-web">Bubble Me</a>. Su questo sito, puoi creare una bubble criptata in cui inserisci informazioni per trovare le chiavi o qualsiasi altra informazione.</p>
+
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
